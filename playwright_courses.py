@@ -21,10 +21,7 @@ with sync_playwright() as playwright:
 
     login_button = page.get_by_test_id('registration-page-registration-button')
     login_button.click()
-
     context.storage_state(path='browser-state.json')
-
-    page.wait_for_timeout(2000)
 
 
 with (sync_playwright() as playwright):
@@ -40,5 +37,3 @@ with (sync_playwright() as playwright):
     content_courses = page.get_by_test_id('courses-list-empty-view-title-text')
     expect(content_courses).to_be_enabled()
     expect(content_courses).to_have_text('There is no results')
-
-    page.wait_for_timeout(3000)
