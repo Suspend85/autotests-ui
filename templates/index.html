@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>autotests-ui</title>
+    <style>
+        h1, h2, h6 {text-align: center}
+        h6 {font-size: 20px;}
+        .red-text {color: red;}
+        #li1 {color: green;}
+        ul li {color: magenta;}
+        ul li::marker {color: cyan;}
+        ol > li:nth-child(2) {color: brown;}
+    </style>
+</head>
+<body>
+<div class="python">
+    <h1>H1 Text</h1>
+    <h2 class="red-text">H2 Text1</h2>
+    <h2 class="red-text">H2 Text2</h2>
+    <h6 id="h6-text" class="red-text"> H6 Text</h6>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cum, ex maiores molestias odit rerum
+        sapiente
+        suscipit totam voluptates? Ab <span style="color:green">accusantium architecto, cumque deleniti deserunt</span>
+        fugit id inventore laborum magni
+        nulla sunt tempora veritatis voluptatibus. Atque, cupiditate ducimus eos iste magnam quam ratione rem
+        repudiandae
+        sint, sit voluptas voluptatem.</p>
+    <a href="python.org" target="_blank">python</a>
+
+    <img src="https://playwright.dev/img/logos/Browsers.png" alt="img" style="width: 250px">
+    <!--    //div[@class="python"]//ul/li[2]    -->
+    <ul>
+        <li id="li1">python</li>
+        <li class="red-text">playwright</li>
+        <li id="li3">pytest</li>
+    </ul>
+    <ol>
+        <li class="ol">test1</li>
+        <li class="ol">test2</li>
+        <li class="ol">test3</li>
+        <li class="ol">test4</li>
+    </ol>
+    <form style="display: flex; flex-direction: column; width:200px; gap:10px" action="/action" method="POST">
+        <input type="text" placeholder="text">
+        <input required type="email" placeholder="email">
+        <input type="password" placeholder="password">
+        <textarea>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cum, ex maiores molestias odit rerum</textarea>
+        <button disabled type="submit">text</button>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <td>item1</td>
+            <td>item2</td>
+            <td>item3</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>row1</td>
+            <td>row2</td>
+            <td>row3</td>
+        </tr>
+        <tr>
+            <td>row4</td>
+            <td>row5</td>
+            <td>row6</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="java-script">
+    <a href="python.org" target="_blank">JavaScript</a>
+        <ul>
+        <li id="li4">python</li>
+        <li class="red-text">playwright</li>
+        <li id="li6">pytest</li>
+    </ul>
+</div>
+</body>
+</html>
