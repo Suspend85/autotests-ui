@@ -22,8 +22,6 @@ def login_test():
         expect(wrong_email_or_password_alert).to_be_visible()
         expect(wrong_email_or_password_alert).to_have_text("Wrong email or password")
 
-        page.wait_for_timeout(3000)
-
 
 def registration_test():
     with sync_playwright() as playwright:
@@ -49,8 +47,6 @@ def registration_test():
         dashboard_title = page.get_by_test_id('dashboard-toolbar-title-text')
         expect(dashboard_title).to_be_visible()
         expect(dashboard_title).to_have_text("Dashboard")
-
-        page.wait_for_timeout(3000)
 
 
 registration_test()
