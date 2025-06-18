@@ -10,6 +10,3 @@ def test_with_bug():
 def test_without_bug():
     ...
 
-@pytest.mark.parametrize(reason="Баг уже исправлен")
-def test_without_bug():
-    ...
