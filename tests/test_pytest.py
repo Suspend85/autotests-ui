@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_user_login():
     print('hello')
 
@@ -23,3 +26,8 @@ def test_assert_positive_case():
 
 def test_assert_negative_case():
     assert (2 + 2) == 5, "(2 + 2) != 5"
+
+
+def test_zero_division():
+    with pytest.raises(ZeroDivisionError):
+        1 / 0
