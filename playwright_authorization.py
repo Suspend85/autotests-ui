@@ -8,11 +8,11 @@ def login_test():
         page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login")
 
         email_input = page.get_by_test_id('login-form-email-input').locator('input')
-        email_input.clear()
+        email_input.fill('')
         email_input.fill('user.name@gmail.com')
 
         password_input = page.get_by_test_id('login-form-password-input').locator('input')
-        password_input.clear()
+        password_input.fill('')
         password_input.fill('Password')
 
         login_button = page.get_by_test_id('login-page-login-button')
@@ -32,15 +32,15 @@ def registration_test():
         page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
 
         email_input = page.get_by_test_id('registration-form-email-input').locator('input')
-        email_input.clear()
+        email_input.fill('')
         email_input.fill('user.name@gmail.com')
 
         username_input = page.get_by_test_id('registration-form-username-input').locator('input')
-        username_input.clear()
+        username_input.fill('')
         username_input.fill('username')
 
         password_input = page.get_by_test_id('registration-form-password-input').locator('input')
-        password_input.clear()
+        password_input.fill('')
         password_input.fill('password')
 
         login_button = page.get_by_test_id('registration-page-registration-button')
