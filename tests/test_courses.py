@@ -4,39 +4,15 @@ import pytest
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
-        page = context.new_page()
-        page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
+def test_empty_courses_list(chromium_page_with_state):
+    page = chromium_page_with_state
+    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
 
-        email_input = page.get_by_test_id('registration-form-email-input').locator('input')
-        email_input.fill('')
-        email_input.fill('user.name@gmail.com')
+    title_courses = page.get_by_test_id('courses-list-toolbar-title-text')
+    expect(title_courses).to_be_enabled()
+    expect(title_courses).to_have_text('Courses')
 
-        username_input = page.get_by_test_id('registration-form-username-input').locator('input')
-        username_input.fill('')
-        username_input.fill('username')
+    content_courses = page.get_by_test_id('courses-list-empty-view-title-text')
+    expect(content_courses).to_be_enabled()
+    expect(content_courses).to_have_text('There is no results')
 
-        password_input = page.get_by_test_id('registration-form-password-input').locator('input')
-        password_input.fill('')
-        password_input.fill('password')
-
-        login_button = page.get_by_test_id('registration-page-registration-button')
-        login_button.click()
-        context.storage_state(path='browser-state.json')
-
-    with (sync_playwright() as playwright):
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context(storage_state="browser-state.json")
-        page = context.new_page()
-        page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
-
-        title_courses = page.get_by_test_id('courses-list-toolbar-title-text')
-        expect(title_courses).to_be_enabled()
-        expect(title_courses).to_have_text('Courses')
-
-        content_courses = page.get_by_test_id('courses-list-empty-view-title-text')
-        expect(content_courses).to_be_enabled()
-        expect(content_courses).to_have_text('There is no results')
