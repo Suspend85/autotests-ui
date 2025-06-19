@@ -3,7 +3,6 @@ import pytest
 from _pytest.fixtures import SubRequest
 
 
-# 1, 2, 3, -2
 @pytest.mark.parametrize('number', [1, 2, 3, -2])
 def test_numbers(number: int):
     assert number > 0
@@ -29,12 +28,15 @@ def test_open_browser(browser: str):
     print(f'Running test on browser {browser}')
 
 
+# Для тестовых классов параметризациф указывается для самого класса
 @pytest.mark.parametrize('user', ['Alice', 'Zara'])
 class TestOperations:
+    # Параметр "user" передается в качестве аргумента в каждый тестовый метод класса
     @pytest.mark.parametrize('account', ['Credit card', 'Debit card'])
     def test_user_with_operations(self, user: str, account: str):
         print(f"User with operations: {user}")
 
+    # Аналогично тут передается "user"
     def test_user_without_operations(self, user: str):
         print(f"User without operations: {user}")
 
@@ -53,6 +55,7 @@ def format_phone_number(phone_number: str) -> str:
 @pytest.mark.parametrize(
     'phone_number', users.keys(),
     ids=format_phone_number
+    # Генерируем идентификаторы динамически
     # ids=lambda phone_number: f'{phone_number}: {users[phone_number]}'
 )
 def test_identifiers(phone_number: str):
