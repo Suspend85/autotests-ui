@@ -27,7 +27,7 @@ class CreateCoursePage(BasePage):
         self.create_course_max_score_input = page.get_by_test_id('create-course-form-max-score-input').locator('input')
         self.create_course_min_score_input = page.get_by_test_id('create-course-form-min-score-input').locator('input')
 
-        self.exercises_title = page.get_by_test_id('create-course-exercises-empty-view-title-text')
+        self.exercises_title = page.get_by_test_id('create-course-exercises-box-toolbar-title-text')
         self.create_exercise_button = page.get_by_test_id('create-course-exercises-box-toolbar-create-exercise-button')
         self.exercises_empty_view_icon = page.get_by_test_id('create-course-exercises-empty-view-icon')
         self.exercises_empty_view_title = page.get_by_test_id('create-course-exercises-empty-view-title-text')
@@ -110,7 +110,7 @@ class CreateCoursePage(BasePage):
         self.create_course_min_score_input.fill(min_score)
         expect(self.create_course_min_score_input).to_have_value(min_score)
 
-    def check_visible_exercise_title(self):
+    def check_visible_exercises_title(self):
         expect(self.exercises_title).to_be_visible()
         expect(self.exercises_title).to_have_text('Exercises')
 
