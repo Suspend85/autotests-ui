@@ -22,11 +22,7 @@ def test_empty_courses_list(chromium_page_with_state: Page):
 
 @pytest.mark.courses
 @pytest.mark.regression
-@pytest.mark.parametrize('title, estimated_time, description, max_score, min_score',
-                         [('Playwright', '2 weeks', 'Playwright', '100', '10'),]
-                         )
-def test_create_course(title, estimated_time, description, max_score, min_score,
-                       chromium_page_with_state: Page, courses_list_page: CoursesListPage,
+def test_create_course(chromium_page_with_state: Page, courses_list_page: CoursesListPage,
                        create_course_page: CreateCoursePage
                        ):
     page = chromium_page_with_state
@@ -42,12 +38,12 @@ def test_create_course(title, estimated_time, description, max_score, min_score,
     create_course_page.check_visible_exercises_empty_view()
     create_course_page.upload_preview_image('./testdata/files/image.jpg')
     create_course_page.check_visible_image_upload_view()
-    create_course_page.fill_create_course_form(title, estimated_time, description, max_score, min_score)
+    create_course_page.fill_create_course_form('Playwright', '2 weeks', 'Playwright', '100', '10')
     create_course_page.click_create_course_button()
 
     courses_list_page.check_visible_courses_title()
     courses_list_page.check_visible_create_course_button()
-    courses_list_page.check_visible_course_card(index=0, title=title, max_score=max_score, min_score=min_score, estimated_time=estimated_time)
+    courses_list_page.check_visible_course_card(index=0, title='Playwright', max_score='100', min_score='10', estimated_time='2 weeks')
 
 
 
