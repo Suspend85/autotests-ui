@@ -7,17 +7,13 @@ from pages.dashboard_page import DashboardPage
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list(chromium_page_with_state: Page):
-    page = chromium_page_with_state
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
-
-    title_courses = page.get_by_test_id('courses-list-toolbar-title-text')
-    expect(title_courses).to_be_enabled()
-    expect(title_courses).to_have_text('Courses')
-
-    content_courses = page.get_by_test_id('courses-list-empty-view-title-text')
-    expect(content_courses).to_be_enabled()
-    expect(content_courses).to_have_text('There is no results')
+def test_empty_courses_list(courses_list_page: CoursesListPage):
+    courses_list_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses')
+    courses_list_page.navbar.check_visible('username')
+    courses_list_page.sidebar.check_visible()
+    courses_list_page.check_visible_courses_title()
+    courses_list_page.check_visible_create_course_button()
+    courses_list_page.check_visible_empty_view()
 
 
 @pytest.mark.courses
