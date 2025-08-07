@@ -34,8 +34,3 @@ def test_create_course(courses_list_page: CoursesListPage, create_course_page: C
 
     courses_list_page.toolbar_view.check_visible()
     courses_list_page.course_view.check_visible(index=0, title='Playwright', max_score='130', min_score='30', estimated_time='3h40m')
-
-
-
-
-

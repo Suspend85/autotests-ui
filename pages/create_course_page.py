@@ -43,3 +43,4 @@ class CreateCoursePage(BasePage):
             title='There is no exercises',
             description='Click on "Create exercise" button to create new exercise'
         )
+

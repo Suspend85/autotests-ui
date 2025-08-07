@@ -13,3 +13,7 @@ class Input(BaseElement):
     def check_have_value(self, value: str, **kwargs):
         locator = self.get_locator(**kwargs)
         expect(locator).to_have_value(value)
+
+    def set_input_files(self, file, **kwargs):
+        locator = self.get_locator(**kwargs)
+        locator.set_input_files(file)
