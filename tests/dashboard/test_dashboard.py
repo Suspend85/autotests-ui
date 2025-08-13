@@ -25,8 +25,9 @@ class TestDashboard:
         dashboard_page_with_state.navbar.check_visible('username')
         dashboard_page_with_state.sidebar.check_visible()
         dashboard_page_with_state.check_visible_dashboard_title()
-        dashboard_page_with_state.check_visible_scores_chart()
-        dashboard_page_with_state.check_visible_courses_chart()
-        dashboard_page_with_state.check_visible_students_chart()
-        dashboard_page_with_state.check_visible_activities_chart()
+        with allure.step('Check visible charts'):
+            dashboard_page_with_state.check_visible_scores_chart()
+            dashboard_page_with_state.check_visible_courses_chart()
+            dashboard_page_with_state.check_visible_students_chart()
+            dashboard_page_with_state.check_visible_activities_chart()
 
