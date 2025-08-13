@@ -54,7 +54,6 @@ class TestAuthorization:
     @allure.severity(Severity.CRITICAL)
     def test_wrong_email_or_password_authorization(self, email: str, password: str, login_page: LoginPage):
         # allure.dynamic.title(f'User login with wrong email or password: {email}')
-
         login_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login')
         login_page.fill_login_form(email=email, password=password)
         login_page.click_login_button()
