@@ -41,15 +41,18 @@ class Settings(BaseSettings):
         videos_dir = DirectoryPath("./videos")
         tracing_dir = DirectoryPath("./tracing")
         browser_state_file = FilePath("browser-state.json")
+        headless = True
 
         videos_dir.mkdir(exist_ok=True)
         tracing_dir.mkdir(exist_ok=True)
         browser_state_file.touch(exist_ok=True)
 
+
         return Settings(
             videos_dir=videos_dir,
             tracing_dir=tracing_dir,
-            browser_state_file=browser_state_file
+            browser_state_file=browser_state_file,
+            headless=headless
         )
 
     def get_base_url(self) -> str:

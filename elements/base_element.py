@@ -3,8 +3,8 @@ from playwright.sync_api import Page, Locator, expect
 
 from tools.logger import get_logger
 
-
 logger = get_logger("BASE_ELEMENT")
+
 
 class BaseElement:
     def __init__(self, page: Page, locator: str, name: str):
