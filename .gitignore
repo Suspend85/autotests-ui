@@ -1,6 +1,17 @@
-venv
+# pycarm
 .idea
-browser-state.json
+
+# python
+venv
+__pycache__
+
+# allure
 allure-results
+allure-report
+
+# testing artifacts
+*.json
+*.html
+*.zip
 tracing
 videos
