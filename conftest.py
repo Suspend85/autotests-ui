@@ -89,5 +89,6 @@ def pytest_sessionstart(session: pytest.Session) -> None:
 
 pytest_plugins = (
     "fixtures.pages",
+    "fixtures.allure",
     "fixtures.browsers"
 )
