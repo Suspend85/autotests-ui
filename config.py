@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Self
+
 from pydantic import EmailStr, FilePath, HttpUrl, DirectoryPath, BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -56,7 +57,6 @@ class Settings(BaseSettings):
             allure_results_dir=allure_results_dir,
             browser_state_file=browser_state_file,
         )
-
 
     def get_base_url(self) -> str:
         return f"{self.app_url}/"
