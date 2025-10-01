@@ -1,8 +1,9 @@
 import allure
 from playwright.sync_api import expect, Locator
+from ui_coverage_tool import ActionType
+
 from elements.base_element import BaseElement
 from tools.logger import get_logger
-from ui_coverage_tool import ActionType
 
 logger = get_logger("TEXTAREA")
 
