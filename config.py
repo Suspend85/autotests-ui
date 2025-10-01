@@ -22,6 +22,7 @@ class TestData(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
+        extra="allow",
         env_file=".env",
         env_file_encoding="utf-8",
         env_nested_delimiter="."
@@ -43,7 +44,6 @@ class Settings(BaseSettings):
         tracing_dir = DirectoryPath("./tracing")
         allure_results_dir = DirectoryPath("./allure-results")
         browser_state_file = FilePath("browser-state.json")
-        headless = True
 
         videos_dir.mkdir(exist_ok=True)
         tracing_dir.mkdir(exist_ok=True)
@@ -55,8 +55,8 @@ class Settings(BaseSettings):
             tracing_dir=tracing_dir,
             allure_results_dir=allure_results_dir,
             browser_state_file=browser_state_file,
-            headless=headless
         )
+
 
     def get_base_url(self) -> str:
         return f"{self.app_url}/"
